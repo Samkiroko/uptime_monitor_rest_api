@@ -13,10 +13,14 @@ const server = http.createServer(function (req, res) {
   // Get the path
   let path = parsedUrl.pathname
   let trimmedPath = path.replace(/^\/+|\/+$/g, '')
+
+  //  Get the http method
+  let method = req.method.toLowerCase()
+
   // Send the response
   res.end('Hello world\n')
   // log  the request path
-  console.log('Request received on path : ' + trimmedPath)
+  console.log('Request received on path : ' + trimmedPath + ' with the: ' + method)
 })
 // Start the server, and have it listen to port 3000
 server.listen(3000, function () {
